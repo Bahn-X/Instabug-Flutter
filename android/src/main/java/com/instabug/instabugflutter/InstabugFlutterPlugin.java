@@ -1003,7 +1003,7 @@ public class InstabugFlutterPlugin implements MethodCallHandler {
      * @param isEnabled isEnabled flag
      */
     public void setTrackUserSteps(boolean isEnabled) {
-        if isEnabled {
+        if (isEnabled) {
             Instabug.setTrackingUserStepsState(Feature.State.ENABLED);
         } else {
             Instabug.setTrackingUserStepsState(Feature.State.DISABLED);
