@@ -707,6 +707,18 @@ void main() {
     ]);
   });
 
+  test('setTrackUserSteps: Test', () async {
+    const isEnabled = false;
+    final List<dynamic> args = <dynamic>[isEnabled];
+    Instabug.setTrackUserSteps(isEnabled);
+    expect(log, <Matcher>[
+      isMethodCall(
+        'setTrackUserSteps:',
+        arguments: args,
+      )
+    ]);
+  });
+
   test('sendJSCrashByReflection:handled: Test', () async {
     try {
       final List<dynamic> params = <dynamic>[1, 2];
@@ -734,6 +746,18 @@ void main() {
       ]);
     }
   });
+
+  ///Since the below method only runs on iOS and has the [Platform.isIOS] condition in it, it will fail when running outside iOS,
+  /// therefore its commented.
+  // test('disableMethodSwizzling: Test', () async {
+  //   Instabug.disableMethodSwizzling();
+  //   expect(log, <Matcher>[
+  //     isMethodCall(
+  //       'disableMethodSwizzling:',
+  //       arguments: null,
+  //     )
+  //   ]);
+  // });
 
   ///Since the below method only runs on android and has the [Platform.isAndroid] condition in it, it will fail when running outside android,
   /// therefore its commented.

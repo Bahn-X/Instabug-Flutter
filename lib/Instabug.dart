@@ -293,6 +293,22 @@ class Instabug {
     await _channel.invokeMethod<Object>('setReproStepsMode:', params);
   }
 
+  /// Enables trackUserSteps.
+  /// Default is true.
+  /// [isEnabled] isEnabled value
+  static Future<void> setTrackUserSteps(bool isEnabled) async {
+    final List<dynamic> params = <dynamic>[isEnabled];
+    await _channel.invokeMethod<Object>('setTrackUserSteps:', params);
+  }
+
+  /// iOS only
+  /// Disable method swizzling
+  static Future<void> disableMethodSwizzling() async {
+    if (Platform.isIOS) {
+      await _channel.invokeMethod<Object>('disableMethodSwizzling:');
+    }
+  }
+
   ///Android Only
   ///Enables all Instabug functionality
   static Future<void> enableAndroid() async {
