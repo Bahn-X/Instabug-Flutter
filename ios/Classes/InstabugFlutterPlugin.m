@@ -827,6 +827,24 @@ FlutterMethodChannel* channel;
     [Instabug setReproStepsMode:reproMode];
 }
 
+/**
+  * These are all the steps the user has done up to the latest report. This feature can be disabled using this API
+  * 
+  * @param isEnabled {boolean} isEnabled
+  */
++ (void)setTrackUserSteps:(NSNumber *)isEnabled {
+  BOOL boolValue = [isEnabled boolValue];
+  Instabug.trackUserSteps = boolValue;
+}
+
+/**
+  * Disables method swizzling for Instabug.
+  */
++ (void)disableMethodSwizzling {
+  [Instabug disableMethodSwizzling];
+}
+
+
 + (NSDictionary *)constants {
   return @{
       @"InvocationEvent.shake": @(IBGInvocationEventShake),

@@ -424,4 +424,17 @@
 
 + (void)networkLog:(NSDictionary *)networkData;
 
+/**
+  * By default, user steps are collected by the SDK. These are all the steps the user has done up to the latest report. This feature can be disabled using this API
+  *
+  * @param isEnabled boolean
+  */
++ (void)setTrackUserSteps:(NSNumber *)isEnabled;
+
+/**
+  * Available on iOS only 
+  * Disables method swizzling for Instabug
+  */
++ (void)disableMethodSwizzling;
+
 @end
